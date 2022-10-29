@@ -1,7 +1,7 @@
 #include <iostream>
 #include <queue>
 using namespace std;
-void inorder(node *root, int &cnt) {
+void inorder(node *root, int &cnt) {   //PostOrder/PreOrder Transversal may also be used
   if (root == NULL)
     return;
   inorder(root->left, cnt);
