@@ -23,7 +23,7 @@ int diameter(node*root){   //Brute Force Time complexity:O(N^2) Each node is bei
 pair<int,int> fastdiameter(node*root){   //Optimised approach:O(N) Each node is being transversed only once
   //base case
   if(root==NULL)
-    return {0,0};
+    return {0,0};     //first,second values of pair store diamter,height respectively
   pair<int,int>left=fastdiameter(root->left);
    pair<int,int>right=fastdiameter(root->right);
 
