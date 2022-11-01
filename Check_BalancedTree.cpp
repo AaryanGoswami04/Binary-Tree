@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+/*A height balanced binary tree is a binary tree in which the height of the left subtree and right subtree of any node does not differ by more than 1 and both the left and right subtree are also height balanced.*/
 int height(node *root) {
   // base case
   if (root == NULL)
