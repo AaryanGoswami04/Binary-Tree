@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-int main() {
   void traverseleft(Node*root, vector<int>&ans){
          //base case
          if((root==NULL)||(root->left==NULL && root->right==NULL))
@@ -16,7 +15,7 @@ int main() {
      void traverseleaf(Node*root, vector<int>&ans){
          //base case
          if(root==NULL)
-         return;
+             return;
          if(root->left==NULL && root->right==NULL){
              ans.push_back(root->data);
              return;
@@ -29,7 +28,7 @@ int main() {
        void traverseright(Node*root, vector<int>&ans){
          //base case
          if((root==NULL)||(root->left==NULL && root->right==NULL))
-         return;
+             return;
         
          if(root->right)
              traverseright(root->right,ans);
@@ -46,7 +45,7 @@ int main() {
         return ans;
         ans.push_back(root->data);
         
-        //store left part
+        //store left boundary
         traverseleft(root->left,ans);
         
         //traverse leaf nodes
@@ -55,7 +54,7 @@ int main() {
         //right subtree:
         traverseleaf(root->right,ans);
          
-        //traverse right part
+        //store right boundary
         traverseright(root->right,ans);
         
         return ans;
