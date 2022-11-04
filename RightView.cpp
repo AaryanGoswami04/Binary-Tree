@@ -1,4 +1,4 @@
-#include <iostream>
+//For left side view, swap lines 8 and 9
 void solve(TreeNode* root,vector<int>&ans,int level){
         if(!root)   //base case
         return;
@@ -13,6 +13,4 @@ void solve(TreeNode* root,vector<int>&ans,int level){
         int level=0;
         solve(root,ans,level);
         return ans;
-int main() {
-  
-}
+    }
