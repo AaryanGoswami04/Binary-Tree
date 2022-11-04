@@ -8,8 +8,8 @@ public:
      if(!root)
         return ans;
      
-     map<int,int>TopNode;
-     queue<pair<Node*,int>>q;
+     map<int,int>TopNode;   //First value of map stores horizontal disatnce from root, second value stores top node's value at that hd 
+     queue<pair<Node*,int>>q;  //stores node and its corresponding hd from root
      q.push({root,0});
      
      while(!q.empty()){
@@ -20,6 +20,7 @@ public:
          int hd=temp.second;
          
          //If a value is already present for hd, then do nothing
+         //For bottom view of tree, omit line 24
          if(TopNode.find(hd)==TopNode.end())
              TopNode[hd]=frontnode->data;
              
@@ -30,8 +31,6 @@ public:
              q.push({frontnode->right,hd+1});
      }
      for(auto i:TopNode)
-     ans.push_back(i.second);
+        ans.push_back(i.second);
      return ans;
-int main() {
-  
-}
+ }
