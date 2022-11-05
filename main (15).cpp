@@ -1,13 +1,13 @@
 #include <iostream>
-TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+TreeNode* lowestCommonAncestor(Node* root, Node* p, Node* q) {
         //base  case
         if(root==NULL)
            return NULL;
         if(root->val==p->val || root->val==q->val)
            return root;
 
-        TreeNode*LeftAns= lowestCommonAncestor(root->left,p,q);
-        TreeNode*RightAns= lowestCommonAncestor(root->right,p,q);
+       Node*LeftAns= lowestCommonAncestor(root->left,p,q);
+       Node*RightAns= lowestCommonAncestor(root->right,p,q);
         
          if(LeftAns && RightAns)
             return root;
@@ -18,6 +18,3 @@ TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         else
             return NULL;
     }
-int main() {
-  std::cout << "Hello World!\n";
-}
