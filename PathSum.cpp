@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+/*Given the root of a binary tree and an integer targetSum, return the number of paths where the sum of the values along the path equals targetSum.*/
  //Time complexity:O(N^2) , Space complexity:O(N)
     void solve(TreeNode* root, int targetSum,int &ans, vector<int>&path){
         //base case
@@ -25,11 +26,3 @@ using namespace std;
         return ans;
     }
 };
-int main() {
-  long long int a=5;
-  int b=5;
-  if(a==b)
-    cout<<"1"<<endl;
-  else
-    cout<<"b"<<endl;
-}
