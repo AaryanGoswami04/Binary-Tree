@@ -1,6 +1,6 @@
 #include <iostream>
 //Time complexity:O(N) Space complexity:O(N)
-    void CreateMap(vector<int>& inorder, map<int,int>& NodeToIndex, int n){
+    void CreateMap(vector<int>& inorder, map<int,int>& NodeToIndex, int n){  //Each element of inorder is mapped to its index
         for(int i=0; i<n; i++)
                NodeToIndex[inorder[i]]=i;
     }
@@ -13,11 +13,11 @@
             
             int element = postorder[postorderindex--];
             TreeNode* root = new TreeNode(element);
-            int position = NodeToIndex[element];
+            int position = NodeToIndex[element];   //stores index of element in inorder vector
 
-            //recrusive calls
-           root->right = solve(inorder, postorder, postorderindex, position+1, inorder_end,NodeToIndex, n);
-        root->left = solve(inorder, postorder, postorderindex, inorder_start, position-1,NodeToIndex, n);
+            //recursive calls
+           root->right = solve(inorder, postorder, postorderindex, position+1, inorder_end,NodeToIndex, n);  //For every node, its right subtree is built first
+          root->left = solve(inorder, postorder, postorderindex, inorder_start, position-1,NodeToIndex, n);
 
             return root;
     }
@@ -31,7 +31,3 @@
         TreeNode* ans= solve(inorder, postorder, postorderindex, 0, n-1, NodeToIndex, n);
         return ans;
     }
-};
-int main() {
-  std::cout << "Hello World!\n";
-}
