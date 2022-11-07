@@ -1,6 +1,7 @@
 #include <iostream>
-//Time complezity:O(N), Space complexity:O(N)
-   void CreateMapping(vector<int>& inorder, map<int,int>& NodeToIndex,int n){
+//Time complexity:O(N), Space complexity:O(N)
+/*Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.*/
+   void CreateMapping(vector<int>& inorder, map<int,int>& NodeToIndex,int n){    //Each element of inorder vector gets mapped to its index
        for(int i=0; i<n; i++)
            NodeToIndex[inorder[i]]=i;
    }
@@ -15,8 +16,8 @@
         int position= NodeToIndex[element];
 
         //Recursice calls
-        root->left=solve(preorder, inorder, preorderindex, inorder_start, position-1, n,NodeToIndex);
-        root->right=solve(preorder, inorder, preorderindex, position+1, inorder_end, n,NodeToIndex);
+        root->left=solve(preorder, inorder, preorderindex, inorder_start, position-1, n, NodeToIndex);
+        root->right=solve(preorder, inorder, preorderindex, position+1, inorder_end, n, NodeToIndex);
          
         return root;
    }
@@ -27,10 +28,7 @@
 
         CreateMapping(inorder, NodeToIndex, n);
 
-        TreeNode* ans=solve(preorder,inorder,preorderindex,0,n-1,n,NodeToIndex);;
+        TreeNode* ans=solve(preorder, inorder, preorderindex, 0, n-1, n, NodeToIndex);
         return ans;
     }
 };
-int main() {
-  std::cout << "Hello World!\n";
-}
