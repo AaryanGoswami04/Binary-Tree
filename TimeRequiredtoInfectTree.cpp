@@ -1,6 +1,12 @@
 #include <iostream>
 reeNode* CreateParentMapping(TreeNode* root, int start,  map<TreeNode*,TreeNode*>& NodeToParent){
+/*You are given the root of a binary tree with unique values, and an integer start. At minute 0, an infection starts from the node with value start.
 
+Each minute, a node becomes infected if:
+
+The node is currently uninfected.
+The node is adjacent to an infected node.
+Return the number of minutes needed for the entire tree to be infected.*/
         TreeNode* target;
         NodeToParent[root]=NULL;  //Root has no parent
         queue<TreeNode*>q;
@@ -13,14 +19,14 @@ reeNode* CreateParentMapping(TreeNode* root, int start,  map<TreeNode*,TreeNode*
                if(front->val == start)   //To find the node whose value is equal to start
                   target=front;
 
-                if(front->left){
+               if(front->left){
                    q.push(front->left);
                    NodeToParent[front->left] = front;  //front->left is mapped to its parent
                 }
 
-                if(front->right){
+               if(front->right){
                    q.push(front->right);
-                   NodeToParent[front->right] = front;//front->right is mapped to its parent
+                   NodeToParent[front->right] = front;  //front->right is mapped to its parent
                 }
         }
         return target;
@@ -32,6 +38,7 @@ reeNode* CreateParentMapping(TreeNode* root, int start,  map<TreeNode*,TreeNode*
 
        q.push(root);
        visited[root] = true;
+  
 
        int ans=0;
        while(!q.empty()){
@@ -76,6 +83,3 @@ reeNode* CreateParentMapping(TreeNode* root, int start,  map<TreeNode*,TreeNode*
         int ans=infect_tree(target, NodeToParent);
         return ans;
     }
-int main() {
-  std::cout << "Hello World!\n";
-}
