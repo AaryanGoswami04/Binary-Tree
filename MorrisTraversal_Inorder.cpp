@@ -29,7 +29,4 @@
             }
         }
         return ans;
-    }
-int main() {
-  std::cout << "Hello World!\n";
-}
+    } 
