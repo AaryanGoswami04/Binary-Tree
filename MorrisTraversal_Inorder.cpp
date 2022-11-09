@@ -1,5 +1,6 @@
 #include <iostream>
 //Morris traversal: O(1) Space complexity
+//For preorder using Morris traversal insert line 27 after line 21
     vector<int> inorderTraversal(TreeNode* root) {
         vector<int>ans;
 
@@ -13,7 +14,7 @@
                 curr = curr->right;
             }
             else{
-                TreeNode* pred = curr->left;   //Sotres the predecessor i.e the rightmost node of left subtree
+                TreeNode* pred = curr->left;   //Stores the predecessor i.e the rightmost node of left subtree
                 while( pred->right && pred->right != curr)
                     pred = pred->right;
                 
